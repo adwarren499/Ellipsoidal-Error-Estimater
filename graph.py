@@ -209,7 +209,7 @@ for p in range(0, 90):
     l[p] = 2*p - 89
 
 def graph_avg(array, title):
-    plt.xlabel('Latitude Tile')
+    plt.xlabel('Latitude')
     plt.ylabel('Temperature')
     plt.title(title)
     plt.xlim(-90, 90)
@@ -217,22 +217,22 @@ def graph_avg(array, title):
     plt.tight_layout()
     plt.plot(l, array)
 
-graph_avg(medavgwat, r'$ΔT^{b}_{w}$ ($n = 0.5N$, $T = 289$ (K), $rh = 50$)')
-plt.show()
-graph_avg(medavgair, r'$ΔT^{b}_{a}$ ($n = 0.5N$, $T = 289$ (K), $rh = 50$)')
-plt.show()
+#graph_avg(medavgwat, r'$ΔT^{b}_{w}$ ($n = 0.5N$, $T = 289$ (K), $rh = 50$)')
+#graph_avg(medavgair, r'$ΔT^{b}_{a}$ ($n = 0.5N$, $T = 289$ (K), $rh = 50$)')
 
-# Plots the differences in spherical and ellipsoidal models for max, min, and median conditions
-graph_main(maxallTT1, 'coolwarm', r'$ΔT^{b}_{w}$ ($n = N$, $T = 305$ (K), $rh = 100$)', case=True)
-graph_main(maxallTT2, 'coolwarm', r'$ΔT^{b}_{a}$ ($n = N$, $T = 305$ (K), $rh = 100$)', case=True)
 
-graph_main(minTT1, 'coolwarm', r'$ΔT^{b}_{w}$ ($n = 0$, $T = 273$ (K), $rh = 0$)', case=True)
-graph_main(minTT2, 'coolwarm', r'$ΔT^{b}_{a}$ ($n = 0$, $T = 273$ (K), $rh = 0$)', case=True)
+# Plots the differences in spherical and ellipsoidal models for max, min, and median conditions. 
+# Make sure to put np.flipud as shown just below for each array you want to plot if it is not already there.
+'''graph_main(np.flipud(maxallTT1), 'coolwarm', r'$ΔT^{b}_{w}$ ($n = N$, $T = 305$ (K), $rh = 100$)', case=True)
+graph_main(np.flipud(maxallTT2), 'coolwarm', r'$ΔT^{b}_{a}$ ($n = N$, $T = 305$ (K), $rh = 100$)', case=True)
+
+graph_main(np.flipud(minTT1), 'coolwarm', r'$ΔT^{b}_{w}$ ($n = 0$, $T = 273$ (K), $rh = 0$)', case=True)
+graph_main(np.flipud(minTT2), 'coolwarm', r'$ΔT^{b}_{a}$ ($n = 0$, $T = 273$ (K), $rh = 0$)', case=True)
 
 graph_main(medTT1, 'coolwarm', r'$ΔT^{b}_{w}$ ($n = 0.5N$, $T = 289$ (K), $rh = 50$)', case=True)
 graph_main(medTT2, 'coolwarm', r'$ΔT^{b}_{a}$ ($n = 0.5N$, $T = 289$ (K), $rh = 50$)', case=True)
 
-'''graph_main(maxrhTT1, 'coolwarm', 'Maximum of Relative Humidity on Water', case=True)
+graph_main(maxrhTT1, 'coolwarm', 'Maximum of Relative Humidity on Water', case=True)
 graph_main(maxrhTT2, 'coolwarm', 'Maximum of Relative Humidity on Air', case=True)
 
 graph_main(maxtTT1, 'coolwarm', 'Maximum of Surface Temperature on Water', case=True)
@@ -250,17 +250,18 @@ graph_main(maxrhnTT2, 'coolwarm', 'Maximum of Relative Humidity and Sunlight Dur
 graph_main(maxtnTT1, 'coolwarm', 'Maximum of Surface Temperature and Sunlight Duration on Water', case=True)
 graph_main(maxtnTT2, 'coolwarm', 'Maximum of Surface Temperature and Sunlight Duration on Air', case=True)
 
-graph_main(minnoghdeltaTT1, 'coolwarm', r'$ΔT^{b}_{w}$ ($n = 0$, $T = 273$ (K), $rh = 0$)', case=True)
-graph_main(minnoghdeltaTT2, 'coolwarm', r'$ΔT^{b}_{a}$ ($n = 0$, $T = 273$ (K), $rh = 0$)', case=True)
+graph_main(minnoghdeltaTT1c, 'coolwarm', r'$ΔT^{b}_{w}$ ($n = 0$, $T = 273$ (K), $rh = 0$)')
+graph_main(minnoghdeltaTT2c, 'coolwarm', r'$ΔT^{b}_{a}$ ($n = 0$, $T = 273$ (K), $rh = 0$)')
 
-graph_main(maxallnoghdeltaTT1, 'coolwarm', r'$ΔT^{b}_{w}$ ($n = N$, $T = 305$ (K), $rh = 100$)', case=True)
-graph_main(maxallnoghdeltaTT2, 'coolwarm', r'$ΔT^{b}_{a}$ ($n = N$, $T = 305$ (K), $rh = 100$)', case=True)
+graph_main(maxallnoghdeltaTT1c, 'coolwarm', r'$ΔT^{b}_{w}$ ($n = N$, $T = 305$ (K), $rh = 100$)')
+graph_main(maxallnoghdeltaTT2c, 'coolwarm', r'$ΔT^{b}_{a}$ ($n = N$, $T = 305$ (K), $rh = 100$)')
 
 graph_main(mednoghdeltaTT1, 'coolwarm', r'$ΔT^{b}_{w}$ ($n = 0.5N$, $T = 289$ (K), $rh = 50$)')
 graph_main(mednoghdeltaTT2, 'coolwarm', r'$ΔT^{b}_{a}$ ($n = 0.5N$, $T = 289$ (K), $rh = 50$)')
 
-graph_main(medT1s, 'coolwarm', r'$T^{s}_{w}$ ($n = 0.5N$, $T = 289$ (K), $rh = 50$)')
-graph_main(medT1e, 'coolwarm', r'$T^{e}_{w}$ ($n = 0.5N$, $T = 289$ (K), $rh = 50$)')
+graph_main(np.flipud(medT1s), 'coolwarm', r'$T^{s}_{w}$ ($n = 0.5N$, $T = 289$ (K), $rh = 50$)')
+graph_main(np.flipud(medT1e), 'coolwarm', r'$T^{e}_{w}$ ($n = 0.5N$, $T = 289$ (K), $rh = 50$)')
 
 graph_main(mednoghdeltaT1s, 'coolwarm', r'$T^{s}_{w}$ ($n = 0.5N$, $T = 289$ (K), $rh = 50$)')
 graph_main(mednoghdeltaT1e, 'coolwarm', r'$T^{e}_{w}$ ($n = 0.5N$, $T = 289$ (K), $rh = 50$)')'''
+plt.show()
