@@ -217,8 +217,10 @@ def graph_avg(array, title):
     plt.tight_layout()
     plt.plot(l, array)
 
-#graph_avg(medavgwat, r'$ΔT^{b}_{w}$ ($n = 0.5N$, $T = 289$ (K), $rh = 50$)')
-#graph_avg(medavgair, r'$ΔT^{b}_{a}$ ($n = 0.5N$, $T = 289$ (K), $rh = 50$)')
+graph_avg(np.flipud(medavgwat), r'$ΔT^{b}_{w}$ ($n = 0.5N$, $T = 289$ (K), $rh = 50$)')
+plt.show()
+graph_avg(np.flipud(medavgair), r'$ΔT^{b}_{a}$ ($n = 0.5N$, $T = 289$ (K), $rh = 50$)')
+plt.show()
 
 
 # Plots the differences in spherical and ellipsoidal models for max, min, and median conditions. 
@@ -264,4 +266,3 @@ graph_main(np.flipud(medT1e), 'coolwarm', r'$T^{e}_{w}$ ($n = 0.5N$, $T = 289$ (
 
 graph_main(mednoghdeltaT1s, 'coolwarm', r'$T^{s}_{w}$ ($n = 0.5N$, $T = 289$ (K), $rh = 50$)')
 graph_main(mednoghdeltaT1e, 'coolwarm', r'$T^{e}_{w}$ ($n = 0.5N$, $T = 289$ (K), $rh = 50$)')'''
-plt.show()
